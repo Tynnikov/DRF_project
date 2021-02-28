@@ -33,5 +33,5 @@ package-lock.json
 
 .uwsgi/
 
-config.json
+#config.json
 log/*

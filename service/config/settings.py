@@ -9,18 +9,35 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import json
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+if os.path.isfile(os.path.join(BASE_DIR, 'config.json')):
+    with open(os.path.join(BASE_DIR, 'config.json')) as f:
+        config = json.loads(f.read())
+else:
+    with open(os.path.join(BASE_DIR, 'config.test.json')) as f:
+        config = json.loads(f.read())
+
+
+def get_config(setting, config=config, quite=False):
+    """Get the secret variable or return explicit exception."""
+    try:
+        return config[setting]
+    except KeyError:
+        if not quite:
+            print("Set the {0} config parameter in config.json".format(setting))
+        return None
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x&u1*b+3yd045jozps6irdn9&tln1_gn$v!z5-p+r#(pdljq8$'
+SECRET_KEY = get_config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -109,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
