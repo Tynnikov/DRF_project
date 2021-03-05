@@ -35,3 +35,6 @@ package-lock.json
 
 config.json
 log/*
+
+node_modules/*
+frontend/node_modules/*
