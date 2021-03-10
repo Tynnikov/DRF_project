@@ -1,4 +1,4 @@
-https://img.shields.io/static/v1?label=<LABEL>&message=<MESSAGE>&color=<COLOR>
+
 # YET ANOTHER DRF_project
 ![GitHub all releases](https://img.shields.io/github/downloads/Tynnikov/DRF_project/total?logo=GitHub&logoColor=green)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Tynnikov/DRF_project?logo=GitHub&style=flat-square)
