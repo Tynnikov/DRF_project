@@ -11,6 +11,6 @@ pip install -r requirements.txt
 ```
 
 ## What i've done additionally?
-- add loguru
-- add settings_local
-- add config.json 
+- added loguru
+- added settings_local
+- added config.json 
