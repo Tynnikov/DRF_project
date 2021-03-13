@@ -60,13 +60,16 @@ INSTALLED_APPS = [
     'tools',
     #lib
     'rest_framework',
+    'django_filters',
 ]
 
 AUTH_USER_MODEL = 'user.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 3
+    'PAGE_SIZE': 3,
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+
 }
 
 MIDDLEWARE = [

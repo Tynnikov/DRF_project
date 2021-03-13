@@ -1,6 +1,7 @@
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.viewsets import ModelViewSet
 
+from .filters import ProjectFilters
 from .models import Project, Todo
 from .serializers import ProjectSerializer, TodoSerializer
 
@@ -11,16 +12,17 @@ class ProjectLimitOffsetPagination(LimitOffsetPagination):
     default_limit = 10
 
 
-class ProjectView(ModelViewSet):
-    """Project view."""
+class ProjectViewSet(ModelViewSet):
+    """ Project view (CRUD) with pagination and filters. """
 
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     pagination_class = ProjectLimitOffsetPagination
+    filterset_class = ProjectFilters
 
 
 class TodoView(ModelViewSet):
-    """Todo_ view"""
+    """ Todo_ view. """
 
     queryset = Todo.objects.all()
     serializer_class = TodoSerializer
