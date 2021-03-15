@@ -3,7 +3,7 @@
 
 
 
-Training project to take advantage of tools such as DRF, React, GraphQL, docker, markdonw, loguru, pytest, swagger and etc. 
+Training project to take advantage of tools such as DRF, React, GraphQL, docker, markdown, loguru, pytest, swagger and etc. 
 
 ## Installation
 ```
@@ -13,4 +13,5 @@ pip install -r requirements.txt
 ## What i've done additionally:
 - added loguru
 - added settings_local
-- added config.json 
+- added config.json
+- added front end 
