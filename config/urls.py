@@ -17,8 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken import views
 
-from library.views import AuthorModelViewSet, AuthorLimitOffsetPaginationViewSet
+from library.views import AuthorModelViewSet, AuthorLimitOffsetPaginationViewSet, BookModelViewSet
 from todoapp.views import ProjectViewSet, TodoView
 from user.views import UserRegistrationView, UserProfileView
 
@@ -28,10 +29,12 @@ router.register('authors_with_pagination', AuthorLimitOffsetPaginationViewSet)
 router.register('users', UserRegistrationView)
 router.register('todoapp', TodoView)
 router.register('project', ProjectViewSet)
+router.register('books', BookModelViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('api/', include(router.urls)),
     path('api/profile/<int:pk>/', UserProfileView.as_view(), name='profile_user'),
+    path('api-token-auth/', views.obtain_auth_token),
 ]
